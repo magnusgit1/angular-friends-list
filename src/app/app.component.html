@@ -8,4 +8,11 @@
 </div>
 <div class="people">
   <!-- Add your people component here -->
+   @for (person of people; track person) {
+    <app-people
+    [person]="person"
+    (voted)="setFavorites($event)"
+    [lastVoted]="person===favorite"
+    ></app-people>
+   }
 </div>
