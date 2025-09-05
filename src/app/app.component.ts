@@ -13,7 +13,7 @@ export class AppComponent {
 
   setFavorites(fav: string){
     if (!this.favorites.includes(fav)){
-      this.favorites.push(fav)
+      this.favorites.push(fav + ',')
     }
   }
   addFriend() {
@@ -25,6 +25,6 @@ export class AppComponent {
   }
 
   removeFavorite(person: string) {
-    this.favorites = this.favorites.filter(curr => curr !== person)
+    this.favorites = this.favorites.filter(curr => curr !== person+',')
   }
 }

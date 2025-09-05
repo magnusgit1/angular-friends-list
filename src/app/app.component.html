@@ -5,7 +5,7 @@
 </div>
 <div class="favorite">
   <p>My favorite people are: </p>
-  <ul>
+  <ul class="fav-list">
     @for (person of favorites; track person) {
       <li>
         <h4>{{person}}</h4>
@@ -17,11 +17,11 @@
 <div class="people">
   <!-- Add your people component here -->
    @for (person of people; track person) {
-    <app-people
+    <app-people 
     [person]="person"
     (voted)="setFavorites($event)"
     (remove)="removeFavorite($event)"
-    [lastVoted]="favorites.includes(person)"
+    [lastVoted]="favorites.includes(person + ',')"
     ></app-people>
    }
 </div>
