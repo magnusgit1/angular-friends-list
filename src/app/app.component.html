@@ -4,7 +4,15 @@
   <button (click)="addFriend()">Add friend</button>
 </div>
 <div class="favorite">
-  <p>My favorite person is: {{ favorite }}</p>
+  <p>My favorite people are: </p>
+  <ul>
+    @for (person of favorites; track person) {
+      <li>
+        <h4>{{person}}</h4>
+      </li>
+    }
+  </ul>
+
 </div>
 <div class="people">
   <!-- Add your people component here -->
@@ -12,7 +20,8 @@
     <app-people
     [person]="person"
     (voted)="setFavorites($event)"
-    [lastVoted]="person===favorite"
+    (remove)="removeFavorite($event)"
+    [lastVoted]="favorites.includes(person)"
     ></app-people>
    }
 </div>
